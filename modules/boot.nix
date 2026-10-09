@@ -15,6 +15,9 @@ in
     enable = true;
     efiSupport = true;
     maxGenerations = 4;
+    style = {
+    wallpapers =[];
+    };
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
