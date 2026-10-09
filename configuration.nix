@@ -15,7 +15,6 @@ in
     ./modules/users.nix
     ./modules/packages.nix
     ./modules/nix.nix
-    ./modules/home.nix
     ./modules/swap.nix
     ./modules/btrfs.nix
 

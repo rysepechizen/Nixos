@@ -6,6 +6,7 @@
       ls = "ls --color=auto";
       grep = "grep --color=auto";
       rebuild = "sudo nixos-rebuild switch";
+      hms = "home-manager switch -b backup";
     };
     initExtra = ''
       fastfetch
