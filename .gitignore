@@ -1,9 +1,0 @@
-# Editors / temporary files
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Nix build outputs
-result
-result-*

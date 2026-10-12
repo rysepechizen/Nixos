@@ -25,6 +25,7 @@
         "cpu"
         "gpu"
         "memory"
+        "swap"
         "disk"
         "locale"
       ];
