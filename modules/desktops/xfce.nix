@@ -1,4 +1,4 @@
-# XFCE runs on X11. Its input method (ibus) is set up in home/input/ibus.nix.
+# XFCE runs on X11. Its input method (ibus) is set up in modules/input/ibus.nix.
 { pkgs, ... }:
 {
   services.xserver = {

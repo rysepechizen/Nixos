@@ -1,4 +1,3 @@
-
 {
   description = "NixOS configuration for Latitude-5410";
 
@@ -14,26 +13,25 @@
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let
+      system = "x86_64-linux";
       settings = import ./settings.nix;
+
+      # Unstable package set for selected modules (Noctalia). Passed as a
+      # specialArg so it is available to every module as `pkgs-unstable`.
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
-      nixosConfigurations.${settings.hostName} =
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+      nixosConfigurations.${settings.hostName} = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit pkgs-unstable; };
 
-          modules = [
-            ./configuration.nix
-            home-manager.nixosModules.home-manager
-
-            # Make unstable packages available to selected modules.
-            ({ pkgs, ... }: {
-              _module.args.pkgs-unstable =
-                import nixpkgs-unstable {
-                  system = pkgs.stdenv.hostPlatform.system;
-                };
-            })
-          ];
-        };
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
     };
 }
-

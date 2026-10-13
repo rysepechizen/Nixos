@@ -11,7 +11,7 @@ in
 
   imports = [
     ./core # shell, git, starship, fastfetch, everyday apps
-    ./input # fcitx5 or ibus, picked by settings.inputMethod
+    ./input # fcitx5 (ibus is a system module: modules/input)
     ./desktops # per-desktop config, picked by settings.desktop
   ];
 

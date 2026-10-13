@@ -16,9 +16,11 @@
       ];
 
       settings.globalOptions = {
+        # Not Super+space: niri binds Mod+Space to the Noctalia launcher,
+        # so fcitx5 would never see it.
         "Hotkey/TriggerKeys" = {
-          "0" = "Super+space";
-          "1" = "Control+space";
+          "0" = "Control+space";
+          "1" = "Alt+Shift_L";
         };
         "Hotkey/EnumerateGroupForwardKeys" = {
           "0" = "Control+Super+space";

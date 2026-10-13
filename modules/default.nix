@@ -21,6 +21,9 @@
     ./hardware/btrfs.nix
     ./hardware/swap.nix
 
+    # ── input method: ibus only (fcitx5 lives in ../home/input) ──
+    ./input
+
     # ── desktop: picked by `desktop` in settings.nix ──
     ./desktops
 

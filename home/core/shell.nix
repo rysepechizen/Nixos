@@ -2,12 +2,18 @@
 {
   programs.bash = {
     enable = true;
+
     shellAliases = {
       ls = "ls --color=auto";
       grep = "grep --color=auto";
-      # One command now applies the system AND your home config.
-      rebuild = "sudo nixos-rebuild switch";
+
+      # Test the system configuration without switching.
+      rebuild-check = "sudo nixos-rebuild dry-build --flake /etc/nixos#Latitude-5410";
+
+      # Apply the system and Home Manager configuration.
+      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#Latitude-5410";
     };
+
     initExtra = ''
       fastfetch
     '';

@@ -1,10 +1,9 @@
-# Input methods. settings.nix decides which one this machine gets:
-#   xfce          → ibus.nix
-#   everything else → fcitx5.nix
+# Home Manager input method: fcitx5 only (every desktop except XFCE).
+# ibus is started by the system — see modules/input/ibus.nix.
 # (Plain import: `imports` is resolved before module arguments exist.)
 let
   settings = import ../../settings.nix;
 in
 {
-  imports = [ ./${settings.inputMethod}.nix ];
+  imports = if settings.inputMethod == "fcitx5" then [ ./fcitx5.nix ] else [ ];
 }
