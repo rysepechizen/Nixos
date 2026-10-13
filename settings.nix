@@ -7,7 +7,7 @@
 # Change a value here and system + home follow together.
 let
   # "niri" | "kde" | "cosmic" | "gnome" | "xfce" | "budgie" | "cinnamon"
-  desktop = "gnome";
+  desktop = "kde";
 
   # Desktops that only run on X11. Everything else is a Wayland session.
   x11Desktops = [ "xfce" "budgie" "cinnamon" ];
@@ -30,7 +30,7 @@ in
   # ── Input method (configured in home/input/) ──────────────────
   # XFCE uses ibus (started by the SYSTEM, modules/input/ibus.nix);
   # every other desktop uses fcitx5 (Home Manager, home/input/fcitx5.nix).
-  inputMethod = if desktop == "xfce" then "ibus" else "fcitx5";
+  inputMethod = if builtins.elem desktop [ "xfce" "gnome" ] then "ibus" else "fcitx5";
   # fcitx5 talks to Wayland natively unless the session is X11.
   isX11 = builtins.elem desktop x11Desktops;
 
