@@ -4,7 +4,10 @@
   libreoffice-fresh
   zoom-us
   obsidian
-  neovim
   xed-editor
+  loupe
+  mpv
+  papers
+  atril
    ];
 }

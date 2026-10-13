@@ -31,11 +31,9 @@ let
   '';
 in
 {
-  xdg.configFile."niri/config.kdl".source = "${niriConfig}/config.kdl";
-  xdg.configFile."niri/cfg" = {
-    source = "${niriConfig}/cfg";
-    recursive = true;
-  };
+   xdg.configFile."niri/config.kdl".source = "${niriConfig}/config.kdl";
+
+  xdg.configFile."niri/cfg".source = "${niriConfig}/cfg";
 
   # config.kdl includes ./noctalia.kdl. Until Noctalia has generated it (first
   # login), an empty file keeps niri from refusing to load the config.
