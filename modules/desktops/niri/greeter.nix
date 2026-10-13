@@ -1,5 +1,5 @@
 # Login screen: greetd running the Noctalia greeter.
-{ pkgs, settings, ... }:
+{ pkgs, pkgs-unstable, settings, ... }:
 let
   cursorPackage = pkgs.${settings.cursor.package};
   toml = pkgs.formats.toml { };
@@ -9,12 +9,12 @@ in
     enable = true;
     settings.default_session = {
       user = "greeter";
-      command = "${pkgs.noctalia-greeter}/bin/noctalia-greeter-session";
+      command = "${pkgs-unstable.noctalia-greeter}/bin/noctalia-greeter-session";
     };
   };
 
   # Puts the `noctalia-greeter sessions/outputs` helpers on PATH.
-  environment.systemPackages = [ pkgs.noctalia-greeter ];
+  environment.systemPackages = [ pkgs-unstable.noctalia-greeter ];
 
   # The greeter keeps greeter.toml, sync.toml and wallpapers here, owned by the
   # greetd session user.
@@ -41,7 +41,7 @@ in
     polkit.addRule(function(action, subject) {
       var allowedUsers = ${builtins.toJSON [ settings.user.name ]};
       if (action.id == "org.noctalia.greeter.sync-appearance" &&
-          action.lookup("program") == "${pkgs.noctalia-greeter}/bin/noctalia-greeter-apply-appearance" &&
+          action.lookup("program") == "${pkgs-unstable.noctalia-greeter}/bin/noctalia-greeter-apply-appearance" &&
           action.lookup("user") == "root" &&
           subject.local && subject.active &&
           allowedUsers.indexOf(subject.user) >= 0) {
