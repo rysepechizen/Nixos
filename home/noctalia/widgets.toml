@@ -1,0 +1,11 @@
+# ── Widget settings ──────────────────────────────────────────────
+# Plugin widgets are addressed as "<author>/<plugin>:<widget>".
+[widget.cat]
+type = "dotnetrob/cat:cat"
+run_threshold = 40
+
+[widget.switch]
+type = "kavya-nama/wallpaper-switcher:switch"
+
+[widget.media]
+enabled = false

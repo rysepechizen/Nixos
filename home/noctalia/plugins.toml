@@ -1,0 +1,5 @@
+# ── Plugins ──────────────────────────────────────────────────────
+# Which plugins are switched on. Noctalia downloads them itself; they are not
+# installed by Nix.
+[plugins]
+enabled = [ "dotnetrob/cat", "kavya-nama/wallpaper-switcher" ]

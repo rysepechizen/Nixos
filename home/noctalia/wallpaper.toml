@@ -1,0 +1,12 @@
+# ── Wallpapers ───────────────────────────────────────────────────
+# The folder itself is user data (not in this repo). The currently shown
+# wallpaper is runtime state, so it is deliberately NOT pinned here.
+[wallpaper]
+directory = "@home@/Pictures/Wallpapers"
+
+[wallpaper.automation]
+enabled = true
+interval_seconds = 120
+
+[wallpaper.default]
+path = "@home@/Pictures/Wallpapers/redditislikefb-astral-summit.png"

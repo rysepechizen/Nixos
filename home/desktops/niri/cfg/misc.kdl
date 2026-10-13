@@ -1,0 +1,20 @@
+// ────────────── Behaviour ──────────────
+prefer-no-csd                                 // ask apps to drop their own title bars
+hotkey-overlay { skip-at-startup; }           // hide the "important hotkeys" popup at login
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+cursor {
+    hide-when-typing                          // hide pointer while you type
+    hide-after-inactive-ms 3000               // and after 3s idle
+}
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"       // Electron apps (Discord, VS Code…) run native Wayland
+    QT_QPA_PLATFORM "wayland"                 // Qt apps use Wayland
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"   // no Qt-drawn title bars
+}
+
+debug {
+    // Lets Noctalia notifications activate/focus windows.
+    honor-xdg-activation-with-invalid-serial
+}

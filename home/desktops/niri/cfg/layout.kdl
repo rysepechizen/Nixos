@@ -1,0 +1,51 @@
+// ────────────── Layout ──────────────
+layout {
+    gaps 10                                   // space between windows
+    center-focused-column "never"             // don't auto-center the focused column
+
+    background-color "transparent"            // required so Noctalia's wallpaper shows through
+
+    preset-column-widths {                    // cycled with Mod+R
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+    default-column-width { proportion 0.5; }  // new windows open at half width
+
+    // Thin gradient ring on the focused window instead of a full border.
+    focus-ring {
+        width 2
+        active-gradient from="#89b4fa" to="#cba6f7" angle=45
+        inactive-color "#45475a80"
+    }
+    border { off; }                           // ring is enough, no extra border
+
+    // Soft drop shadow gives windows depth.
+    shadow {
+        on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    // Highlight showing where a dragged window will land.
+    insert-hint {
+        color "#89b4fa80"
+    }
+
+    // Tabbed column look (toggle with Mod+W).
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+        gap 6
+        width 4
+        length total-proportion=0.5
+        corner-radius 2
+    }
+}
+
+// ────────────── Overview ──────────────
+overview {
+    zoom 0.5                                  // how far windows zoom out in Mod+O
+}

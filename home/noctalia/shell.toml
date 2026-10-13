@@ -1,0 +1,23 @@
+# ── General shell behaviour and services ─────────────────────────
+[shell]
+font_family = "Inter"
+polkit_agent = true               # Noctalia is the auth-popup agent (no separate polkit agent needed)
+password_style = "random"
+screen_time_enabled = true
+clipboard_confirm_clear_history = false
+clipboard_keep_from_closed_apps = false
+
+[location]
+address = "Kathmandu,Nepal"       # weather + night-light sunrise/sunset
+
+[nightlight]
+enabled = true
+
+[battery]
+warning_threshold = 20
+
+[notification]
+history_retention_hours = 1
+
+[osd]
+background_opacity = 0.7

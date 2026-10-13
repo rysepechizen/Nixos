@@ -1,0 +1,9 @@
+// ────────────── Display ──────────────
+// PER-MACHINE: this is the one file to edit on a different laptop/monitor.
+// Run `niri msg outputs` to see your output names.
+output "eDP-1" {
+    mode "1920x1080@59.999"
+    scale 1.33                                 // fractional scaling for the laptop panel
+    transform "normal"
+    position x=1280 y=0                       // placement relative to other monitors
+}

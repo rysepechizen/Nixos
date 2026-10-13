@@ -1,0 +1,12 @@
+# ── Theme ────────────────────────────────────────────────────────
+[theme]
+mode = "auto"                     # follows light/dark
+
+# Noctalia re-renders its palette into these apps' config files whenever it changes.
+# "niri" is what writes ~/.config/niri/noctalia.kdl (included by niri's config.kdl).
+# Caution: a template can only write to a file that isn't read-only. If one of
+# these apps' configs is also managed by Home Manager (starship.toml is), drop
+# that id here or stop managing the file in Nix.
+[theme.templates]
+builtin_ids   = [ "alacritty", "niri", "starship" ]
+community_ids = [ "libreoffice", "neovim", "obsidian", "fastfetch", "fcitx5" ]

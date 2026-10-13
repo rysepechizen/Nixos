@@ -1,16 +1,23 @@
-{ ... }:
+# Entry point for everything user-level. Used two ways:
+#   • NixOS:      modules/home-manager.nix imports it (the normal case)
+#   • other distro: home/standalone.nix imports it
+let
+  settings = import ../settings.nix;
+in
+{ lib, ... }:
 {
+  # Same `settings` the system modules see: { settings, ... }:
+  _module.args.settings = settings;
+
   imports = [
-    ./git.nix
-    ./fastfetch.nix
-    ./packages.nix
-    ./shell.nix
-    ./hide-fcitx.nix
-    ./Gnome-settings.nix
+    ./core # shell, git, starship, fastfetch, everyday apps
+    ./input # fcitx5 or ibus, picked by settings.inputMethod
+    ./desktops # per-desktop config, picked by settings.desktop
   ];
-  home.username = "sanzay";
-  home.homeDirectory = "/home/sanzay";
-  nixpkgs.config.allowUnfree = true;
-  programs.home-manager.enable = true;
-  home.stateVersion = "26.05";
+
+  home.username = lib.mkDefault settings.user.name;
+  home.homeDirectory = lib.mkDefault "/home/${settings.user.name}";
+
+  # Do not change after install, even when upgrading Home Manager.
+  home.stateVersion = settings.stateVersion;
 }

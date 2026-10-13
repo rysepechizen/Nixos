@@ -1,0 +1,19 @@
+# ── Idle behaviour (seconds of inactivity) ───────────────────────
+# lock after 5 min → screen off at 10 → lock + suspend at 12.
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+[idle.behavior.lock]
+action = "lock"
+enabled = true
+timeout = 300.0
+
+[idle.behavior.screen-off]
+action = "screen_off"
+enabled = true
+timeout = 600.0
+
+[idle.behavior.lock-and-suspend]
+action = "lock_and_suspend"
+enabled = true
+timeout = 720.0

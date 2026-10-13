@@ -1,0 +1,49 @@
+// ────────────── Window rules ──────────────
+// Rounded corners on every window (clip-to-geometry makes content follow the curve).
+window-rule {
+    geometry-corner-radius 16
+    clip-to-geometry true
+}
+
+// Slightly dim unfocused terminals so the active window stands out.
+window-rule {
+    match app-id=r#"^(Alacritty|foot|kitty)$"# is-active=false
+    opacity 0.92
+}
+
+// Terminal ignores the default half-width and uses wezterm's own size.
+// window-rule {
+//    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+//    default-column-width {}
+//}
+
+// Small utility windows float instead of tiling.
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"^org\.pulseaudio\.pavucontrol$"#
+    match app-id=r#"^org\.gnome\.Calculator$"#
+    match title="^(Open File|Save File|Save As)$"
+    open-floating true
+}
+
+// Hide password managers from screenshots and screen sharing.
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    block-out-from "screen-capture"
+}
+
+// ────────────── Layer rules ──────────────
+// Put Noctalia's wallpaper in the overview backdrop so it stays behind zoomed-out workspaces.
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+// Disable blur behind the Noctalia bar.
+layer-rule {
+    match namespace="^noctalia-bar-"
+    background-effect {
+        blur false
+    }
+}

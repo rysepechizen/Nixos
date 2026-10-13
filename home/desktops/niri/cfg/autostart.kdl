@@ -1,0 +1,7 @@
+// ────────────── Startup ──────────────
+spawn-at-startup "noctalia"                   // Noctalia shell: bar, launcher, notifications, wallpaper, lock
+
+// Not started here on purpose:
+//  • input method (fcitx5/ibus) — Home Manager runs it as a systemd user service
+//    (home/input/), so it also works on other desktops.
+//  • polkit agent — Noctalia has its own ([shell] polkit_agent = true in noctalia/shell.toml).

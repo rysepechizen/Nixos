@@ -1,0 +1,23 @@
+// ────────────── Input ──────────────
+input {
+    keyboard {
+        xkb {
+            layout "us"                       // keyboard layout
+        }
+        numlock                               // NumLock on at startup
+    }
+
+    touchpad {
+        tap                                   // tap to click
+        natural-scroll                        // macOS-style scrolling
+        dwt                                   // disable touchpad while typing
+        disabled-on-external-mouse            // touchpad off when a mouse is plugged in
+    }
+
+    // Focus windows by hovering; max-scroll-amount=0% stops the view
+    // from scrolling sideways just because the mouse touched an edge.
+    focus-follows-mouse max-scroll-amount="0%"
+
+    warp-mouse-to-focus                       // cursor jumps to the window you focus by keyboard
+    workspace-auto-back-and-forth             // pressing Mod+N on the current workspace goes back to the previous one
+}

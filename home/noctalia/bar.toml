@@ -1,0 +1,15 @@
+# ── The bar ──────────────────────────────────────────────────────
+# start / center / end are lists of widget ids. "cat" and "switch" come from
+# plugins (see widgets.toml and plugins.toml).
+[bar.default]
+thickness = 46
+scale = 1.2
+font_scale = 0.9
+background_opacity = 0.27
+margin_ends = 0
+radius_bottom_left = 0
+radius_bottom_right = 0
+
+start  = [ "launcher", "wallpaper", "workspaces", "switch" ]
+center = [ "clock", "weather", "cat" ]
+end    = [ "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "session" ]

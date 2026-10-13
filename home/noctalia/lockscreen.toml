@@ -1,0 +1,5 @@
+# ── Lock screen ──────────────────────────────────────────────────
+# Custom lock-screen widget layout is off. Turn it on from the GUI
+# (Settings → Lock screen) to design one; it lands in settings.toml.
+[lockscreen_widgets]
+enabled = false
